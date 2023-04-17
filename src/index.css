@@ -1,13 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --citrine: hsl(57, 97%, 45%);
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: theme('colors.body');
+  color: white;
+}
+@layer base {
+  p {
+    @apply px-2 pb-3 font-bold text-slate-300;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .bg-grad {
+    background: linear-gradient(180deg, #1b1b1b, rgba(17, 24, 31, 0));
+  }
+  .bg-header {
+    background: #090909;
+  }
+
+  .span {
+    @apply ml-4 font-normal text-accent;
+  }
+  .btn {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: (--citrine) !important;
+    /* border: 2px solid var(--citrine); */
+    /* border-radius: 50px; */
+    transition: 0.5s ease;
+  }
+}
+
+.mytext {
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  line-height: 19px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: theme('colors.accent');
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+.dot {
+  height: 10px;
+  margin-left: 3px;
+  width: 10px;
+  background-color: theme('colors.accent');
+  border-radius: 50%;
+  display: inline-block;
 }
