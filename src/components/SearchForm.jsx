@@ -29,51 +29,43 @@ const SearchForm = () => {
 
   return (
     <div className='py-8'>
-      <div className='sm:w-[85vw] max-w-[40rem] py-8 shadow-1 px-6 mx-auto bg-grad text-center rounded-2xl'>
-        <div className='flex items-center justify-center mb-4 gap-x-4'>
-          <div className=''>
-            <label htmlFor='year-filter' className='pr-1'>
-              Year:
-            </label>
-            <input
-              type='text'
-              className='text-lg text-gray-300 border-none bg-input focus:outline-none'
-              id='year-filter'
-              value={yearFilter}
-              onChange={handleYearFilterChange}
-            />
-          </div>
-          <div>
-            <label htmlFor='type-filter' className='pr-1'>
-              Type:
-            </label>
-            <select
-              className='text-sm text-gray-300 border-none bg-input focus:outline-none'
-              id='type-filter'
-              value={typeFilter}
-              onChange={handleTypeFilterChange}
-            >
-              <option value=''>Any</option>
-              <option value='movie'>Movie</option>
-              <option value='series'>TV series</option>
-            </select>
-          </div>
-        </div>
-        <div className='flex items-center justify-center rounded-xl bg-input'>
+      <div className='sm:w-[85vw] max-w-[40rem] py-8 shadow-1 px-6 mx-auto bg-grad text-center rounded-2xl overflow-hidden'>
+        <div className='flex items-center justify-center w-3/4 mx-auto mb-6'>
           <input
             type='text'
-            className='w-full p-2 text-lg text-gray-300 bg-transparent border-none focus:outline-none'
+            className='w-full px-2 py-1 bg-input focus:outline-0'
             placeholder='Search Movie...'
             ref={searchValue}
           />
 
           <button
-            className='tracking-[2px] flex items-center gap-[10px] uppercase  bg-accent text-input font-semibold rounded-r-xl px-2 py-2.5'
+            className='flex items-center justify-center px-2 py-1 bg-accent text-input'
             onClick={searchMovie}
           >
             <RiSearchLine size={20} />
             <span>Search</span>
           </button>
+        </div>
+        <div className='grid grid-cols-2 gap-5 mx-auto text-white sm:w-3/4'>
+          <input
+            type='text'
+            className='px-2 py-1 bg-input focus:outline-0'
+            id='year-filter'
+            placeholder='Enter year...'
+            value={yearFilter}
+            onChange={handleYearFilterChange}
+          />
+
+          <select
+            className='px-2 py-1 border-0 bg-input focus:outline-0'
+            id='type-filter'
+            value={typeFilter}
+            onChange={handleTypeFilterChange}
+          >
+            <option value=''>Any</option>
+            <option value='movie'>Movie</option>
+            <option value='series'>TV series</option>
+          </select>
         </div>
       </div>
     </div>

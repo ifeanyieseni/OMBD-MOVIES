@@ -16,7 +16,6 @@ module.exports = {
       colors: {
         accent: 'hsl(57, 97%, 45%)',
         input: 'hsl(253, 21%, 13%)',
-        body: '#0e0e0e',
       },
       boxShadow: {
         1: '0px 4px 30px rgba(0, 0, 0, 0.08)',
