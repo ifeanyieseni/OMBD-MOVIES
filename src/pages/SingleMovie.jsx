@@ -81,7 +81,7 @@ const SingleMovie = () => {
     director,
   } = movie
   return (
-    <section className='container mx-auto text-center'>
+    <section className='container min-h-screen mx-auto text-center'>
       <Link
         to='/'
         className='px-3 py-3 text-teal-100 capitalize border-2 border-solid rounded border-accent hover:bg-accent hover:text-input'
@@ -89,7 +89,7 @@ const SingleMovie = () => {
         back home
       </Link>
 
-      <div className='w-[75vw] mx-auto mt-16 mb-20  bg-grad shadow-inner rounded-xl'>
+      <div className='w-full md:w-[75vw] mx-auto mt-16  bg-grad shadow-lg rounded-xl'>
         <h1 className='pt-8 pb-2 text-2xl font-semibold tracking-wide pl-7 text-start'>
           {name}
         </h1>

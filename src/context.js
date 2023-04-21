@@ -6,12 +6,23 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('guardians')
+  const [yearFilter, setYearFilter] = useState('')
+  const [typeFilter, setTypeFilter] = useState('')
   const [movies, setMovies] = useState([])
 
-  const url = `https://www.omdbapi.com/?s=${searchTerm}&apikey=9ce884d7`
   const fetchMovies = async () => {
     setLoading(true)
+
     try {
+      const urlParams = new URLSearchParams({
+        s: searchTerm,
+        y: yearFilter,
+        type: typeFilter,
+        apiKey: '9ce884d7',
+      })
+
+      const url = `http://www.omdbapi.com/?${urlParams.toString()}`
+
       const response = await axios.get(url)
 
       // console.log(response.data.Search)
@@ -40,9 +51,20 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchMovies()
-  }, [searchTerm])
+  }, [searchTerm, yearFilter, typeFilter])
   return (
-    <AppContext.Provider value={{ loading, movies, searchTerm, setSearchTerm }}>
+    <AppContext.Provider
+      value={{
+        loading,
+        movies,
+        searchTerm,
+        setSearchTerm,
+        yearFilter,
+        setYearFilter,
+        typeFilter,
+        setTypeFilter,
+      }}
+    >
       {children}
     </AppContext.Provider>
   )
