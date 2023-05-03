@@ -21,7 +21,7 @@ const MovieList = () => {
   return (
     <section className='pt-10 mb-20'>
       <div className='container p-2 mx-auto'>
-        <div className='grid justify-center gap-8 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-5'>
+        <div className='flex flex-wrap items-center justify-center gap-4'>
           {movies.map((item, index) => {
             // console.log(item)
             return (

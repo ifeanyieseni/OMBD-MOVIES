@@ -3,49 +3,56 @@
 @tailwind utilities;
 
 :root {
-  /**
-   * colors
-   */
-
-  --rich-black-fogra-29: hsl(225, 25%, 9%);
-  --rich-black-fogra-39: hsl(170, 21%, 5%);
-  --raisin-black: hsl(228, 13%, 15%);
-  --eerie-black: hsl(207, 19%, 11%);
-  --light-gray: hsl(0, 3%, 80%);
-  --gunmetal-1: hsl(229, 15%, 21%);
-  --gunmetal-2: hsl(216, 22%, 18%);
-  --gainsboro: hsl(0, 7%, 88%);
-  --citrine: hsl(57, 90%, 45%);
-  --xiketic: hsl(253, 21%, 13%);
-  --gray-x: hsl(0, 0%, 74%);
-  --white: hsl(0, 100%, 100%);
-  --black: hsl(0, 0%, 0%);
-  --jet: hsl(0, 0%, 20%);
+  --citrine: hsl(57, 97%, 45%);
 }
 body {
-  background-color: var(--eerie-black);
-  color: var(--white);
+  background-color: #2d3436;
+  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+  color: #fff;
+}
+@layer base {
+  p {
+    @apply px-2 pb-3 font-bold text-slate-300;
+  }
 }
 
 @layer utilities {
-  input {
-    @apply bg-transparent border-b border-[var(--gunmetal-2)];
+  .bg-grad {
+    background: linear-gradient(180deg, #1b1b1b, rgba(17, 24, 31, 0));
   }
-  select {
-    @apply bg-[var(--raisin-black)] border-2 border-[var(--gunmetal-2)];
+  .bg-header {
+    background: #090909;
+  }
+
+  .span {
+    @apply ml-4 font-normal text-accent;
+  }
+  .btn {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: (--citrine) !important;
+    /* border: 2px solid var(--citrine); */
+    /* border-radius: 50px; */
+    transition: 0.5s ease;
   }
 }
 
-.btn {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: var(--rich-black-fogra-29);
-  border: 2px solid var(--citrine);
-  border-radius: 6px;
-  transition: 0.5s ease;
+.mytext {
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  margin-bottom: 10px;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  line-height: 19px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .spinner {
@@ -61,7 +68,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: var(--citrine);
+  background: theme('colors.accent');
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -102,7 +109,7 @@ body {
   height: 10px;
   margin-left: 3px;
   width: 10px;
-  /* background-color: theme('colors.accent'); */
+  background-color: theme('colors.accent');
   border-radius: 50%;
   display: inline-block;
 }
