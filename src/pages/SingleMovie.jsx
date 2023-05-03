@@ -89,7 +89,7 @@ const SingleMovie = () => {
         back home
       </Link>
 
-      <div className='w-full md:w-[75vw] mx-auto mt-16  bg-grad shadow-lg rounded-xl'>
+      <div className='w-full md:w-[75vw] mx-auto mt-16  shadow-1 rounded-xl'>
         <h1 className='pt-8 pb-2 text-2xl font-semibold tracking-wide pl-7 text-start'>
           {name}
         </h1>

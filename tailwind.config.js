@@ -6,17 +6,13 @@ module.exports = {
       primary: 'Poppins',
     },
     screens: {
-      xs: '540px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1234px',
     },
     extend: {
-      colors: {
-        accent: 'hsl(57, 97%, 45%)',
-        input: 'hsl(253, 21%, 13%)',
-      },
+      colors: {},
       boxShadow: {
         1: '0px 4px 30px rgba(0, 0, 0, 0.08)',
       },
