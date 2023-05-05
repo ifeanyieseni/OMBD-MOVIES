@@ -30,12 +30,12 @@ const Header = () => {
           <div class='flex justify-between items-center '>
             <Link to='/' class='flex items-center'>
               <RiGooglePlayLine size={20} color='yellow' />
-              <span class='text-2xl tracking-wide font-medium dark:text-white '>
+              <span class='text-[1.5rem] tracking-wide font-medium dark:text-white '>
                 MovieLand
               </span>
             </Link>
 
-            <div className='text-[17px]'>
+            <div className='text-[1rem]'>
               <Link
                 to='/'
                 className='hover:text-yellow-400 focus:text-yellow-300'
