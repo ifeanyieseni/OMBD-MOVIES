@@ -26,7 +26,7 @@ const Header = () => {
       } `}
     >
       <header className='py-4'>
-        <nav class=' px-8'>
+        <nav class=' px-4'>
           <div class='flex justify-between items-center '>
             <Link to='/' class='flex items-center'>
               <RiGooglePlayLine size={20} color='yellow' />

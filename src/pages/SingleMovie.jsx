@@ -84,7 +84,7 @@ const SingleMovie = () => {
     <>
       <div className='flex items-center justify-center w-full min-h-screen px-4 mb-5 md:mb-20'>
         <div className='w-full max-w-5xl flex flex-col md:flex-row space-y-6 p-8 text-white shadow-lg bg-[var(--oxford-blue-2)] rounded-xl'>
-          <div className='flex flex-col space-y-8'>
+          <div className='flex flex-col flex-1 space-y-8'>
             <div>
               <h1 className='text-2xl font-bold tracking-wide md:text-4xl'>
                 {name}

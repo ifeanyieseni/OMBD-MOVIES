@@ -18,7 +18,7 @@ const WatchList = () => {
   }
 
   return (
-    <section className='px-8 pt-10 mb-20'>
+    <section className='px-4 pt-10 mb-20'>
       <div className=''>
         <div className='text-4xl font-bold leading-5 tracking-wide py-9 mb-7'>
           Favourites
