@@ -54,28 +54,31 @@ const AppProvider = ({ children }) => {
     fetchMovies()
   }, [searchTerm, yearFilter, typeFilter])
 
+  // useEffect(() => {
+  //   const movieFavourites = JSON.parse(
+  //     localStorage.getItem('react-movie-app-favourites')
+  //   )
+  //   setFavourites(movieFavourites)
+  // }, [])
+  // const getLocalStorage = (items) => {
+  //   localStorage.setItem('react-movie-app-favourites', JSON.stringify(items))
+  // }
   useEffect(() => {
-    const movieFavourites = JSON.parse(
-      localStorage.getItem('react-movie-app-favourites')
-    )
-    setFavourites(movieFavourites)
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites'))
+    if (storedFavorites) {
+      setFavourites(storedFavorites)
+    }
   }, [])
-  const getLocalStorage = (items) => {
-    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items))
-  }
 
   const addFavouriteMovie = (item) => {
-    const newFavouritesList = [...favourites, item]
-    setFavourites(newFavouritesList)
-    getLocalStorage(newFavouritesList)
+    const updatedFavourites = [...favourites, item]
+    setFavourites(updatedFavourites)
+    localStorage.setItem('favorites', JSON.stringify(updatedFavourites))
   }
   const removeFavouriteMovie = (item) => {
-    // console.log(item)
-    const newFavouritesList = favourites.filter(
-      (favourite) => favourite.id !== item.id
-    )
-
-    setFavourites(newFavouritesList)
+    const updatedFavorites = favourites.filter((f) => f.id !== item.id)
+    setFavourites(updatedFavorites)
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
   }
   return (
     <AppContext.Provider

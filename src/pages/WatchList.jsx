@@ -24,7 +24,7 @@ const WatchList = () => {
           Favourites
         </div>
         <div className='flex flex-wrap items-center justify-center gap-4 md:justify-start'>
-          {favourites?.map((item, index) => {
+          {favourites.map((item, index) => {
             // console.log(item)
             return (
               <article
