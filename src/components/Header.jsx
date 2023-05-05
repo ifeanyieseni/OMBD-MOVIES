@@ -30,7 +30,7 @@ const Header = () => {
           <div class='flex justify-between items-center '>
             <Link to='/' class='flex items-center'>
               <RiGooglePlayLine size={20} color='yellow' />
-              <span class='text-[1.5rem] tracking-wide font-medium dark:text-white '>
+              <span class='text-[1.1rem] tracking-wide font-medium dark:text-white '>
                 MovieLand
               </span>
             </Link>
