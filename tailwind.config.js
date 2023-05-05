@@ -13,16 +13,15 @@ module.exports = {
       xl: '1234px',
     },
     extend: {
-      colors: {
-        accent: 'hsl(57, 97%, 45%)',
-        input: 'hsl(253, 21%, 13%)',
-      },
       boxShadow: {
         1: '0px 4px 30px rgba(0, 0, 0, 0.08)',
       },
     },
   },
-  plugins: [],
+  corePlugins: {
+    aspectRatio: false,
+  },
+  plugins: [require('@tailwindcss/aspect-ratio')],
 }
 
 // https://huemint.com/brand-2/#palette=fafffb-8d4f4f-f83b00

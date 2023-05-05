@@ -3,53 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --citrine: hsl(57, 97%, 45%);
+  --rich-black-1: hsl(219, 32%, 10%);
+  --rich-black-2: hsl(222, 25%, 10%);
+  --oxford-blue-1: hsla(218, 39%, 14%, 0.8);
+  --oxford-blue-2: hsl(218, 39%, 14%);
+  --off-white: hsl(0, 0%, 88%);
+  --yellow: hsl(45, 100%, 54%);
 }
+
 body {
-  background-color: #2d3436;
-  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-  color: #fff;
-}
-@layer base {
-  p {
-    @apply px-2 pb-3 font-bold text-slate-300;
-  }
+  background: var(--rich-black-1);
+  color: white;
 }
 
 @layer utilities {
-  .bg-grad {
-    background: linear-gradient(180deg, #1b1b1b, rgba(17, 24, 31, 0));
-  }
-  .bg-header {
-    background: #090909;
-  }
-
-  .span {
-    @apply ml-4 font-normal text-accent;
-  }
-  .btn {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: (--citrine) !important;
-    /* border: 2px solid var(--citrine); */
-    /* border-radius: 50px; */
-    transition: 0.5s ease;
+  input {
+    @apply bg-[var(--rich-black-2)];
   }
 }
 
 .mytext {
-  font-weight: 400;
-  color: #fff;
   overflow: hidden;
-  margin-bottom: 10px;
-  letter-spacing: 0.2px;
-  font-size: 14px;
   line-height: 19px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 700;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -68,7 +46,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: theme('colors.accent');
+  background: var(--yellow);
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -109,7 +87,7 @@ body {
   height: 10px;
   margin-left: 3px;
   width: 10px;
-  background-color: theme('colors.accent');
+  background-color: var(--oxford-blue-2);
   border-radius: 50%;
   display: inline-block;
 }

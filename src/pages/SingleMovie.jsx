@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Loading from '../components/Loading'
-
+import { BsFillBookmarkPlusFill } from 'react-icons/bs'
+import { useGlobalContext } from '../context'
 const SingleMovie = () => {
+  const { addFavouriteMovie } = useGlobalContext()
   const { id } = useParams()
   const [loading, setLoading] = useState(false)
   const [movie, setMovie] = useState(null)
@@ -24,7 +26,6 @@ const SingleMovie = () => {
             Genre: genre,
             Country: country,
             Plot: plot,
-            imdbRating: rating,
             Actors: stars,
             Director: director,
             Runtime: duration,
@@ -40,7 +41,6 @@ const SingleMovie = () => {
             stars,
             director,
             duration,
-            rating,
           }
           setMovie(newMovie)
           // console.log(newMovie)
@@ -73,7 +73,7 @@ const SingleMovie = () => {
     image,
     date,
     duration,
-    rating,
+
     stars,
     genre,
     country,
@@ -81,56 +81,61 @@ const SingleMovie = () => {
     director,
   } = movie
   return (
-    <section className='container min-h-screen mx-auto text-center'>
-      <Link
-        to='/'
-        className='px-3 py-3 text-teal-100 capitalize border-2 border-solid rounded border-accent hover:bg-accent hover:text-input'
-      >
-        back home
-      </Link>
+    <>
+      <div className='flex items-center justify-center w-full min-h-screen px-4 mb-5 md:mb-20'>
+        <div className='w-full max-w-5xl flex flex-col md:flex-row space-y-6 p-8 text-white shadow-lg bg-[var(--oxford-blue-2)] rounded-xl'>
+          <div className='flex flex-col space-y-8'>
+            <div>
+              <h1 className='text-2xl font-bold tracking-wide md:text-4xl'>
+                {name}
+              </h1>
+              <p className='md:w-[90%] pt-2 text-sm  text-cyan-300/50'>
+                {plot}
+              </p>
+            </div>
+            <div className='flex flex-col space-y-6'>
+              <div className='inline-flex items-center space-x-2'>
+                <h3 className='text-lg text-teal-300 capitalize'>Genre:</h3>
+                <span className='text-yellow-400'>{genre}</span>
+              </div>
+              <div className='inline-flex items-center space-x-2'>
+                <h3 className='text-lg text-teal-300 capitalize'>released:</h3>
+                <span className='text-teal-500'>{date}</span>
+              </div>
+              <div className='inline-flex items-center space-x-2'>
+                <h3 className='text-lg text-teal-300 capitalize'>Stars:</h3>
+                <span className='text-yellow-400'>{stars}</span>
+              </div>
+              <div className='inline-flex items-center space-x-2'>
+                <h3 className='text-lg text-teal-300 capitalize'>Duration:</h3>
+                <span className='text-teal-500'>{duration}</span>
+              </div>
+              <div className='inline-flex items-center space-x-2'>
+                <h3 className='text-lg text-teal-300 capitalize'>director:</h3>
+                <span className='text-yellow-400'>{director}</span>
+              </div>
+              <div className='inline-flex items-center space-x-2'>
+                <h3 className='text-lg text-teal-300 capitalize'>country:</h3>
+                <span className='text-yellow-400'>{country}</span>
+              </div>
+            </div>
+          </div>
 
-      <div className='w-full md:w-[75vw] mx-auto mt-16  shadow-1 rounded-xl'>
-        <h1 className='pt-8 pb-2 text-2xl font-semibold tracking-wide pl-7 text-start'>
-          {name}
-        </h1>
-        <div className='flex flex-col items-center gap-5 px-8 py-5 mx-auto lg:items-start lg:flex-row lg-items-center lg:justify-between'>
-          <img src={image} className='rounded-md h-96' alt='' />
-
-          <div className='text-left cursor-pointer'>
-            <p className='font-normal text-md'>{plot}</p>
-
-            <p>
-              Genre: <span className='span'>{genre} </span>
-            </p>
-            <p>
-              Rating :<span className='span'>{rating} </span>
-            </p>
-            <p>
-              Release:
-              <span className='span'>{date}</span>
-            </p>
-
-            <p>
-              Stars:
-              <span className='span'>{stars} </span>
-            </p>
-            <p>
-              Duration:
-              <span className='span'>{duration} </span>
-            </p>
-
-            <p>
-              Director:
-              <span className='span'>{director}</span>
-            </p>
-            <p>
-              Country:
-              <span className='span'> {country} </span>
-            </p>
+          <div className='flex flex-col p-2 space-y-4'>
+            <div className='self-center w-64'>
+              <img src={image} alt='' />
+            </div>
+            <button
+              className='flex items-center justify-center py-2 text-white bg-yellow-700'
+              onClick={() => addFavouriteMovie(movie)}
+            >
+              <BsFillBookmarkPlusFill />
+              <span className='text-lg '>Bookmark</span>
+            </button>
           </div>
         </div>
       </div>
-    </section>
+    </>
   )
 }
 

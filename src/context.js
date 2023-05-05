@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
   const [yearFilter, setYearFilter] = useState('')
   const [typeFilter, setTypeFilter] = useState('')
   const [movies, setMovies] = useState([])
+  const [favourites, setFavourites] = useState([])
 
   const fetchMovies = async () => {
     setLoading(true)
@@ -52,6 +53,30 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchMovies()
   }, [searchTerm, yearFilter, typeFilter])
+
+  useEffect(() => {
+    const movieFavourites = JSON.parse(
+      localStorage.getItem('react-movie-app-favourites')
+    )
+    setFavourites(movieFavourites)
+  }, [])
+  const getLocalStorage = (items) => {
+    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items))
+  }
+
+  const addFavouriteMovie = (item) => {
+    const newFavouritesList = [...favourites, item]
+    setFavourites(newFavouritesList)
+    getLocalStorage(newFavouritesList)
+  }
+  const removeFavouriteMovie = (item) => {
+    // console.log(item)
+    const newFavouritesList = favourites.filter(
+      (favourite) => favourite.id !== item.id
+    )
+
+    setFavourites(newFavouritesList)
+  }
   return (
     <AppContext.Provider
       value={{
@@ -63,6 +88,9 @@ const AppProvider = ({ children }) => {
         setYearFilter,
         typeFilter,
         setTypeFilter,
+        addFavouriteMovie,
+        removeFavouriteMovie,
+        favourites,
       }}
     >
       {children}

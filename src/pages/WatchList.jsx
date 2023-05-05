@@ -1,29 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Loading from '../components/Loading'
+// import Loading from '../components/Loading'
 import { useGlobalContext } from '../context'
-import AddFavourites from './AddFavourite'
+// import AddFavourites from './AddFavourite'
+import RemoveFavourites from '../components/RemoveFavourites'
 
-const MovieList = () => {
-  const { movies, loading, addFavouriteMovie } = useGlobalContext()
+const WatchList = () => {
+  const { favourites, removeFavouriteMovie } = useGlobalContext()
+  // console.log(favourites)
 
-  if (loading) {
-    return <Loading />
-  }
-
-  if (movies.length < 1) {
+  if (favourites.length < 1) {
     return (
       <h2 className='text-center pt-[100px] text-gray-500 text-2xl'>
-        Sorry no movies matched your search criteria
+        Add Favourite Movie
       </h2>
     )
   }
 
   return (
-    <section className='pt-10 mb-20 '>
-      <div className='pl-4'>
+    <section className='px-8 pt-10 mb-20'>
+      <div className=''>
+        <div className='text-4xl font-bold leading-5 tracking-wide py-9 mb-7'>
+          Favourites
+        </div>
         <div className='flex flex-wrap items-center justify-center gap-4 md:justify-start'>
-          {movies.map((item, index) => {
+          {favourites.map((item, index) => {
             // console.log(item)
             return (
               <article
@@ -42,10 +43,10 @@ const MovieList = () => {
                 </Link>
 
                 <button
-                  onClick={() => addFavouriteMovie(item)}
+                  onClick={() => removeFavouriteMovie(item)}
                   className='absolute text-yellow-400 bg-black top-1 left-1 '
                 >
-                  <AddFavourites />
+                  <RemoveFavourites />
                 </button>
               </article>
             )
@@ -72,4 +73,4 @@ const MovieList = () => {
   )
 }
 
-export default MovieList
+export default WatchList
