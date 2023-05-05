@@ -9,13 +9,13 @@ const WatchList = () => {
   const { favourites, removeFavouriteMovie } = useGlobalContext()
   // console.log(favourites)
 
-  // if (favourites.length < 1) {
-  //   return (
-  //     <h2 className='text-center pt-[100px] text-gray-500 text-2xl'>
-  //       Add Favourite Movie
-  //     </h2>
-  //   )
-  // }
+  if (favourites.length < 1) {
+    return (
+      <h2 className='text-center pt-[100px] text-gray-500 text-2xl'>
+        Add Favourite Movie
+      </h2>
+    )
+  }
 
   return (
     <section className='px-8 pt-10 mb-20'>
@@ -24,7 +24,7 @@ const WatchList = () => {
           Favourites
         </div>
         <div className='flex flex-wrap items-center justify-center gap-4 md:justify-start'>
-          {favourites.map((item, index) => {
+          {favourites?.map((item, index) => {
             // console.log(item)
             return (
               <article
