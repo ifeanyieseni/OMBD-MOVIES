@@ -14,6 +14,7 @@ const SearchForm = () => {
 
   React.useEffect(() => {
     searchValue.current.focus()
+    searchValue.current.value = ''
   }, [])
   const searchMovie = () => {
     setSearchTerm(searchValue.current.value)

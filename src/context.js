@@ -10,6 +10,7 @@ const AppProvider = ({ children }) => {
   const [typeFilter, setTypeFilter] = useState('')
   const [movies, setMovies] = useState([])
   const [favourites, setFavourites] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const fetchMovies = async () => {
     setLoading(true)
@@ -71,6 +72,11 @@ const AppProvider = ({ children }) => {
   }, [])
 
   const addFavouriteMovie = (item) => {
+    if (favourites.includes(item)) {
+      alert('Movie already exists')
+      return
+    }
+
     const updatedFavourites = [...favourites, item]
     setFavourites(updatedFavourites)
     localStorage.setItem('favorites', JSON.stringify(updatedFavourites))
